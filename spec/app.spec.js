@@ -1,11 +1,27 @@
-var Add = require("../app");
+var Request = require("request");
 
-describe("Add functionality", () => {
-  it ("calculates x + y = z", () => {
-    expect(Add(10, 5)).toEqual(15);
+describe("Server", () => {
+  var server;
+  beforeAll(() => {
+    server = require("../app");
   });
-
-  it ("calculates x + y != z", () => {
-    expect(Add(10, 5)).not.toEqual(14);
+  afterAll(() => {
+    server.close();
+  });
+  describe("GET /", () => {
+    var data = {};
+    beforeAll((done) => {
+      Request.get("http://localhost:3000/", (error, response, body) => {
+        data.status = response.statusCode;
+        data.body = body;
+        done();
+      });
+    });
+    it("Status 200", () => {
+      expect(data.status).toBe(200);
+    });
+    it("Body", () => {
+      expect(data.body).toBe("The Polyglot Developer");
+    });
   });
 });
