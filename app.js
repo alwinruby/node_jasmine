@@ -7,7 +7,7 @@ app.get("/", (request, response) => {
 });
 
 app.get("/test", (request, response) => {
-  response.status(500).send({ "message" : "This is an error response"});
+  response.status(500).send({ "message" : "GoSweat"});
 });
 
 var server = app.listen(3000, () => {

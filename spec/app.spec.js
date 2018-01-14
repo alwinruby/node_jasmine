@@ -30,7 +30,7 @@ describe("Server", () => {
     });
 
     it("Body", () => {
-      expect(data.body).toBe("The Polyglot Developer");
+      expect(data.body).toBe("GoSweat");
     });
 
   });
