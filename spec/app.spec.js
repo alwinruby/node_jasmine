@@ -53,7 +53,7 @@ describe("Server", () => {
     });
 
     it("Body", () => {
-      expect(data.body.message).toBe("This is an error response");
+      expect(data.body.message).toBe("GoSweat");
     });
 
   });
